@@ -14,7 +14,7 @@ public class MarkdownParse {
         while(currentIndex < markdown.length()) {
             int openBracket = markdown.indexOf("[", currentIndex);
             //Skip over link if there is an image
-            if (markdown.substring(openBracket-1, openBracket).equals("!")) {
+            if (openBracket > 0 && markdown.substring(openBracket-1, openBracket).equals("!")) {
                 int closeParen = markdown.indexOf(")", openBracket);
                 currentIndex = closeParen + 1;
             } else {
