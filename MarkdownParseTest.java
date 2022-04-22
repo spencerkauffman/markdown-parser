@@ -23,4 +23,25 @@ public class MarkdownParseTest {
         ArrayList<String> actual = markdownParse.getLinks(Files.readString(Path.of("test-file.md")));
         assertEquals(expected, actual);
     }
+
+    @Test
+    public void testNewFile() throws IOException {
+        ArrayList<String> expected = new ArrayList<>(List.of("https://g.com"));
+        ArrayList<String> actual = markdownParse.getLinks(Files.readString(Path.of("new-test-file.md")));
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    public void testNewFile1() throws IOException {
+        ArrayList<String> expected = new ArrayList<>(List.of("https://s.com"));
+        ArrayList<String> actual = markdownParse.getLinks(Files.readString(Path.of("new-test-file1.md")));
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    public void testNewFile2() throws IOException {
+        ArrayList<String> expected = new ArrayList<>();
+        ArrayList<String> actual = markdownParse.getLinks(Files.readString(Path.of("new-test-file2.md")));
+        assertEquals(expected, actual);
+    }
 }
